@@ -13,6 +13,7 @@ public class Main {
         String input;
         int pises = 0;
         int countP = cakeWidth * cakeLenght;
+        int leftCke = 0;
 
         while (true){
             input = scan.nextLine();
@@ -20,18 +21,16 @@ public class Main {
                 break;
             }
             pises = Integer.parseInt(input);
-            if (pises <= countP){
-                countP -= pises;
-            }
-            if (pises > countP){
+            leftCke += pises;
+            if (leftCke > countP){
                 break;
             }
 
         }
         if (input.equals("STOP")){
-            System.out.printf("%d pieces are left.", countP);
+            System.out.printf("%d pieces are left.", countP - leftCke);
         }else{
-            int need = pises - countP;
+            int need = leftCke - countP;
             System.out.printf("No more cake left! You need %d pieces more.", need);
         }
 
